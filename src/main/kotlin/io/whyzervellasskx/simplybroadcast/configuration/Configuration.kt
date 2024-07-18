@@ -20,7 +20,7 @@ data class Configuration(
         val invalidUsage: String = "<#fc4300>Неверное использование команды",
         val cooldown: String = "<#fc4300>Подождите еще <cooldown>",
         val reloadComplete: String = "<#fc4300>Плагин <plugin> перезагружен",
-        val broadcastMessage: String = "<color:#cfcfcf>Игрок <#fc4300><player> <color:#cfcfcf>отправил сообщние <#fc4300><message>".trimIndent()
+        val broadcastMessage: String = "<color:#cfcfcf>Игрок <#fc4300><player> <color:#cfcfcf>отправил сообщние <#fc4300><message>"
     )
 
 }

@@ -46,6 +46,8 @@ dependencies {
 
     library("dev.rollczi:litecommands-bukkit:3.4.2")
     library("io.github.blackbaroness:duration-serializer:2.0.2")
+    library("it.unimi.dsi:fastutil:8.5.13")
+    library("io.github.blackbaroness:fastutil-extender-common:1.2.0")
     implementation(kotlin("stdlib-jdk8"))
 }
 
