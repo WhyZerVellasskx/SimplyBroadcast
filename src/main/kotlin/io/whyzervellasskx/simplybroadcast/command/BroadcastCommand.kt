@@ -21,13 +21,11 @@ class BroadcastCommand @Inject constructor(
 ) {
 
     private val config get() = configurationService
-    val cooldown = FastMap.newMap<Pair<CommandSender, Duration>, Instant>()
+    val cooldownMap = FastMap.newMap<Pair<CommandSender, Duration>, Instant>()
 
     @Permission("simplybroadcast.command.broadcast")
     @Execute
     fun execute(@Context sender: CommandSender, @Arg message: MutableList<String>) {
-
-        //if (tryBroadcast(sender, Duration.ofSeconds(2))) return
 
         Bukkit.getOnlinePlayers().forEach {
             player -> player.sendMessage(config.config.message.broadcastMessage.parseMiniMessage(
@@ -42,13 +40,13 @@ class BroadcastCommand @Inject constructor(
 
         val pair = sender to Duration.ofSeconds(3)
         val now = Instant.now()
-        val cooldownEndDates = cooldown[pair] ?: Instant.now()
+        val cooldownEndDates = cooldownMap[pair] ?: Instant.now()
 
         if (now > cooldownEndDates) {
             return false
         }
 
-        cooldown[pair] = now.plus(config.config.settings.cooldown)
+        cooldownMap[pair] = now.plus(config.config.settings.cooldown)
 
         return true
     }
