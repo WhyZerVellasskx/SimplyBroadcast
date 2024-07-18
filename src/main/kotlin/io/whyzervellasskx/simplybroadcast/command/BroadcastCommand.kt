@@ -36,7 +36,7 @@ class BroadcastCommand @Inject constructor(
     }
 
 
-    private fun tryBroadcast(sender: CommandSender, duration: Duration) : Boolean {
+    private fun tryBroadcast(sender: CommandSender, duration: Duration) : Boolean { // нихуя не работает покачто
 
         val pair = sender to Duration.ofSeconds(3)
         val now = Instant.now()
