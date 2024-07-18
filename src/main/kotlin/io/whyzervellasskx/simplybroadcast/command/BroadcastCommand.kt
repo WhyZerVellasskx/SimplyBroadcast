@@ -21,7 +21,7 @@ class BroadcastCommand @Inject constructor(
 ) {
 
     private val config get() = configurationService
-    val cooldownMap = FastMap.newMap<Pair<CommandSender, Duration>, Instant>()
+    private val cooldownMap = FastMap.newMap<Pair<CommandSender, Duration>, Instant>()
 
     @Permission("simplybroadcast.command.broadcast")
     @Execute
